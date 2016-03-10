@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>PoulePi</title>
+
+    <!-- Bootstrap Core CSS -->
+    <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link href="css/grayscale.css" rel="stylesheet">
+
+    <!-- morris charts CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+    <!-- <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->  
+</head>
+<body  id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">
+                    <i class="fa fa-play-circle"></i>  <span class="light">PoulePi</span>
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#dashboard">Tableau de bord</a>
+                    </li>                    
+                    <li>
+                        <a class="page-scroll" href="#makingof">Making of</a>
+                    </li>
+                    <li id="insertlogin">
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Intro Header -->
+    <header class="intro">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h1 class="brand-heading">PoulePi</h1>
+                        <p class="intro-text">Le poulailler connecté à base de Raspberry Pi.<br>Created by JB Freymann.</p>
+                        <a href="#about" class="btn btn-circle page-scroll">
+                            <i class="fa fa-angle-double-down animated"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Public PoulePI Section -->
+    <section id="dashboardSection" class="content-section text-center">
+        <div id="dashboard" >
+            <div class="container-fluid">
+                <div class="col-lg-12">
+                    <h2>Tableau de bord</h2>
+                    <p>Control total du poulailler.</p>
+                          <!-- <p><h2>Flux reservé <BR/> aux personnes connectées</h2></p>             -->
+                   
+                    <div class="row">
+                        <div class="col-sm-12 col-xs-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading"><B>Température</B></div>
+                                <div class="panel-body">
+                                    <div class="col-xs-12 col-sm-4">
+                                        <canvas id="tempinterieur" width="75" height="300">[No canvas support]</canvas>
+                                         <canvas id="tempexterieur" width="75" height="300">[No canvas support]</canvas>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-8">
+                                        <div id="temphistory" ></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <div/>
+                    <div class="row">
+                        <div class="col-sm-6 col-xs-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Timelapse Exterieur
+                                </div>
+                                <div class="panel-body" >
+                                    <div class="embed-responsive embed-responsive-4by3">
+                                         <div id="carouselexterieur" class="carousel" >
+                                          
+
+                                          <!-- Wrapper for slides -->
+                                          <div id="carouselexterieuritems" class="carousel-inner" role="listbox">
+                                                                                       
+                                            
+                                          </div>
+
+                                          <!-- Controls -->
+                                          <a class="left carousel-control" href="#carouselexterieur" role="button" data-slide="prev">
+                                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                            <span class="sr-only">Previous</span>
+                                          </a>
+                                          <a class="right carousel-control" href="#carouselexterieur" role="button" data-slide="next">
+                                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                            <span class="sr-only">Next</span>
+                                          </a>
+                                        </div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-xs-12" >
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Timelapse Interieur
+                                </div>
+                                <div class="panel-body">
+                                    
+                                       <div class="embed-responsive embed-responsive-4by3">
+                                         <div id="carouselinterieur" class="carousel" >
+                                          
+
+                                          <!-- Wrapper for slides -->
+                                          <div id="carouselinterieuritems" class="carousel-inner" role="listbox">
+                                                                                 
+                                            
+                                          </div>
+
+                                          <!-- Controls -->
+                                          <a class="left carousel-control" href="#carouselinterieur" role="button" data-slide="prev">
+                                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                            <span class="sr-only">Previous</span>
+                                          </a>
+                                          <a class="right carousel-control" href="#carouselinterieur" role="button" data-slide="next">
+                                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                            <span class="sr-only">Next</span>
+                                          </a>
+                                        </div>
+                                        </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-xs-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Live Exterieur
+                                </div>
+                                <div class="panel-body">
+                                    <img style="border-radius:5px" class="img-responsive center-block" alt="Responsive image" src="/streamExt"/>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-xs-12" >
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Live Interieur
+                                </div>
+                                <div class="panel-body">
+                                    
+                                    <img style="border-radius:5px" class="img-responsive center-block" alt="Responsive image" src="/streamInt"/>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- makingof Section -->
+    <section id="makingof" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>A propos de PoulePI</h2>
+                <p>Comment garder un oeil sur ses poules en toute occasion ? 
+                    PoulePi est un projet de poulailler connecté. Surveillance video, température, automatisation d'ouverture et de fermeture de porte, niveau de nourriture et d'eau restant, les idées ne manquent pas... </p>
+                <p>L'ensemble du code est open source et disponible sur <a href="http://git.io/poulepi/">Github</a>.  Il a été un prétexte pour jouer avec Bootstrap coté client et  NodeJS, Express 4, PassportJS, oAuth2, OpenId, GPIO, Motion, UV4L, Raspicam coté serveur (raspberry PI B+).</p>
+                
+                <p>Amusez vous bien...</p>          
+            </div>            
+        </div>
+        <div class="row"> 
+            <div class="col-lg-4 col-lg-offset-1"><img class="img-responsive center-block" src="/img/poulepi_mini.jpg"></img></div>
+            <div class="col-lg-4 col-lg-offset-2"><img class="img-responsive center-block" src="/img/raspberrypi-temperaturessensors_mini.jpg"></img></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>Copyright &copy; Cocotte Miolande 2014</p>
+            <p class="small">Thème Bootstrap <a href="https://github.com/IronSummitMedia/startbootstrap-grayscale">Grayscale</a> fourni par Iron Summit Media Strategies, Copyright 2013-2015 Iron Summit Media Strategies, LLC. Code released under the Apache 2.0 license.</p>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- // <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
+
+    <!-- Bootstrap Core JavaScript -->
+    <!-- <script src="js/bootstrap.min.js"></script> -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- RGrpah thermometer javascipt -->
+    <script src="/js/RGraph.common.core.min.js"></script>
+    <script src="/js/RGraph.thermometer.min.js"></script>
+   
+    <!-- Morris Charts javascript -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/grayscale.js"></script>
+    <script>$( "#insertlogin" ).load( "./loginOrAccount?sourceURL=./ #insert" );</script>
+        
+    <!-- Affichage du thermometre affichant la temparature courante -->
+    <script>
+        $(document).ready(function ()
+        {
+            $.getJSON("/data/temperature/?sort=desc&limit=1", function(jsonObject){
+                //console.log(JSON.stringify(data));
+               var thermometerInt = new RGraph.Thermometer({
+                    id: 'tempinterieur',
+                    min: -10,
+                    max: 40,
+                    value: (jsonObject[0]?jsonObject[0].interieur:-10)
+                }).set('title.side',"T° à l'intérieur").set('value.label.decimals',1).draw();
+
+               var thermometerExt = new RGraph.Thermometer({
+                    id: 'tempexterieur',
+                    min: -10,
+                    max: 40,
+                    value: (jsonObject[0]?jsonObject[0].exterieur:-10)
+                }).set('title.side',"T° à l'extérieur").set('value.label.decimals',1).draw();
+
+            });
+            
+        })
+    </script>  
+
+    <!-- chargement des données de températures -->
+    <script>
+      function pad(str, max) {
+      return str.toString().length < max ? pad("0" + str, max) : str;
+    }
+
+    function loadNextCarrousselItem(carrousselsItemsElement,images, index){
+        if (index < images.length){
+            var data = {} ;
+            data.node = carrousselsItemsElement;
+            data.images = images;
+            data.index = index;
+
+            var div = document.createElement("div");
+            div.className = "item";
+            if (index == 0 )
+                div.className += " active";            
+            var img = new Image();
+            img.className = "img-responsive center-block";
+            img.onload = function(){ loadNextCarrousselItem(data.node,data.images, data.index+1); };
+            img.src = images[index].path;
+            div.appendChild(img);
+            carrousselsItemsElement.appendChild(div);
+         }
+    }
+
+    //lazy load carroussel interieur
+    $(document).ready(function (){
+        $.getJSON("/data/webcamcaptureinterieur?sort=desc&limit=300", function(jsonObject){       
+            loadNextCarrousselItem(document.getElementById('carouselinterieuritems'),jsonObject,0);      
+            $('#carouselinterieuritems').carousel({
+                        interval: 1000
+            });      
+        });
+        
+    });
+
+    //lazy load carroussel exterieur
+    $(document).ready(function (){
+        $.getJSON("/data/webcamcaptureexterieur?sort=desc&limit=300", function(jsonObject){
+             loadNextCarrousselItem(document.getElementById('carouselexterieuritems'),jsonObject,0);      
+            $('#carouselexterieuritems').carousel({
+                        interval: 1000
+            });         
+        });
+    });
+
+    $(document).ready(function (){
+        $.getJSON("/data/temperature/", function(jsonObject){
+            new Morris.Line({
+              element: 'temphistory',
+              data: jsonObject,
+              xkey: 'date',
+              ykeys: ['interieur','exterieur'],
+              labels: ['interieur','exterieur'],
+              postUnits:'°',
+              resize:true
+            });
+        });       
+    });  
+    </script>   
+</body>
+</html>

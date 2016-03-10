@@ -1,0 +1,19 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<polymer-element name="http-mjpeg-streaming" attributes="label url">
+  <template>
+<div class="panel panel-default">
+	<div class="panel-heading">{{label}}</div><div class="panel-body"><img src="{{url}}" style="float:left;width:100%;max-width:640px;height:auto;"></img></div></div>
+  <style>
+      @import 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css';
+    </style>
+
+  </template>
+
+   <script>
+  Polymer({
+  	label : "label par defaut",
+  	url : "http://localhost:3000"
+  });
+  </script>
+</polymer-element>
